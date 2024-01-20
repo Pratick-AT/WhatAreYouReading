@@ -48,7 +48,12 @@ const BookList = ({
   return (
     <div className="space-y-8 p-4">
       <h2 className="mb-4 text-2xl font-bold">My Reading List</h2>
-      <div>{books.map((book, index) => renderBookItem(book, index))}</div>
+
+      {books.filter((book) => book.status === "inProgress").length > 0 && (
+        <>
+          <div>{books.map((book, index) => renderBookItem(book, index))}</div>)
+        </>
+      )}
     </div>
   );
 };
